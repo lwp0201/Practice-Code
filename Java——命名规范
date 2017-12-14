@@ -1,0 +1,52 @@
+题目描述
+在绝大多数程序设计语言中，变量名都不能包含空格。那么如果我们使用的变量名由两个或两个以上的单词来命名，我们就需要对这些单词加以区分。
+
+       一般程序设计中，有两种变量命名规范：Snake方式和Camel方式。Snake方式是指单词用小写字母，单词间下划线（“_”）代替空格；Camel方式是指相邻单词首字母用大写表示，对单词加以区分。
+
+       例如，你想定义一个变量表示一个数组数字之和，并且用英文“sum of array”。我们使用Snake方式的变量名为：sum_of_array；用Camel命名方式的变量名为：sumOfArray。
+
+       现在请你将一个Snake方式命名的变量，转换成Camel方式命名的变量。
+
+ 
+
+输入要求
+第一行一个字符串，表示用Snake方式命名的变量名。
+
+ 
+
+输出要求
+输出转换成Camel方式命名的变量名。
+
+ 
+
+假如输入
+sum_of_array
+复制代码
+ 1 import java.util.Arrays;
+ 2 import java.util.Scanner;
+ 3 public class Main 
+ 4 {
+ 5     public static void main(String args[])
+ 6     {
+ 7         Scanner scan = new Scanner(System.in);
+ 8         String Snake = scan.nextLine();
+ 9         char []Camel = Snake.toCharArray();
+10         int num = 0;
+11         for( int i = 0 ; i < Snake.length() ; i++ )
+12         {
+13             if( Camel[i] == '_' )
+14             {
+15                 Camel[i+1] = (char)( Camel[i+1] - 32 );
+16                 num = num + 1;
+17             }
+18         }
+19         String str = new String(Camel);    
+20         String s2=str.replace("_","");
+21         System.out.println(s2);
+22     }
+23 }
+复制代码
+ 
+
+应当输出
+sumOfArray
